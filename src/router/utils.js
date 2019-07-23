@@ -21,8 +21,3 @@ export function findPath(params, list) {
  
 }
 
-export async function getAsyncComponents(params, list) {
-  let component = findComponent(params, list)
-  let a = await component()
-  return a.default
-}

@@ -9,8 +9,8 @@ export default {
     // }
   },
   render(h, context) {
-    console.log('222', this.url, this.$router)
-    return  h(this.$router.current)
+    console.log('from router-view:', this.$router.getCurrent())
+    return  h(this.$router.getCurrent())
   }
 }
 </script>

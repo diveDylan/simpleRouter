@@ -1,21 +1,29 @@
 
-import {  findPath, getAsyncComponents } from './utils'
+import {  findPath, findComponent } from './utils'
 import routes from './routes'
 const router = {}
 
 router.routes = routes
-const getComponent = (params) => getAsyncComponents(params, routes)
+const getComponent = (params) => findComponent(params, routes)
 const getPath = (params) => findPath(params, routes)
-
 // router push by name
 router.push =async (name) => {
-  window.history.pushState(name, null, getPath(name))
-  router.current = await getComponent(name)
-  console.log('current: ', router.current)
+  let a = await getComponent(name)()
+  router.current = a.default
+  console.log('push finished', router.current)
+  window.history.pushState(name, null, router.path)
+}
+router.getCurrent = () => router.current
+
+router.init = () => {
+  router.push('index')
+}
+router.mixins = {
+
 }
 
-router.init = async () => {
-  router.current = await getComponent('index')
-  console.log('current: ', router.current)
+window.onpopstate = (e) => {
+  console.log(e, 'popstate')
 }
+
 export default router

@@ -2,7 +2,7 @@
   <div id="app">
    <button @click="nav('index')">index</button>
    <button @click="nav('travel')">travel</button>
-   <router-view :key="current" :url="current"></router-view>
+   <router-view :key="$router.path"></router-view>
   </div>
 </template>
 
@@ -15,15 +15,15 @@ export default {
   },
   data() {
     return {
-      current: 'index'
+      current: 'index',
     }
   },
   methods: {
-    nav(params) {
-      this.$router.push(params)
+    async nav(params) {
+      await this.$router.push(params)
       this.current = params
     }
-  },
+  }
 }
 </script>
 
