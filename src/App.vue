@@ -2,7 +2,7 @@
   <div id="app">
    <button @click="nav('index')">index</button>
    <button @click="nav('travel')">travel</button>
-   <router-view :url="current"></router-view>
+   <router-view :key="current" :url="current"></router-view>
   </div>
 </template>
 

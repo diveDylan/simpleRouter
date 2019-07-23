@@ -1,4 +1,4 @@
 export default [
-  { name: 'index', components: '../pages/index', path: '/index' },
-  { name: 'travel', components: '../pages/travel', path: '/travel' }
+  { name: 'index', components: () => import('@/pages/index.vue'), path: '/index' },
+  { name: 'travel', components:() => import('@/pages/travel.vue'), path: '/travel' }
 ]
