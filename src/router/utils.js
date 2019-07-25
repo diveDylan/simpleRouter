@@ -1,11 +1,12 @@
-export function findComponent(params, list) {
+export async function findComponent(params, list) {
   let component = null
   // name
   list.map(i => {
     if (params.indexOf('/') === -1 && i.name === params) component = i.components
     if (params.indexOf('/') === -1 && i.path === params) component = i.components
   })
-  return component
+  let a = await component()
+  return a.default
 }
 
 export function findPath(params, list) {

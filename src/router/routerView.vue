@@ -13,13 +13,14 @@ export default {
     }
   },
   watch: {
-    'path': {
-      handler: 'getCurrent',
-      immediate: true
-    }
+    // 'path': {
+    //   handler: 'getCurrent',
+    //   immediate: true
+    // }
   },
   methods: {
     getCurrent() {
+      console.log('getCurrent')
       this.$router.getCurrent()
     }
   },
