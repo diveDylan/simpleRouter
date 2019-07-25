@@ -3,13 +3,13 @@ import App from './App.vue'
 import router from './router/index'
 router.init()
 // test async import function 
-const a = () => import('./App.vue')
-async function get() {
-  let b = await a()
-  console.log(b)
-  return b
-}
-console.log(App, get())
+// const a = () => import('./App.vue')
+// async function get() {
+//   let b = await a()
+//   console.log(b)
+//   return b
+// }
+// console.log(App, get())
 
 Vue.config.productionTip = false
 

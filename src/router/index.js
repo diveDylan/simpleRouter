@@ -11,6 +11,7 @@ router.push =async (name) => {
   let a = await getComponent(name)()
   router.current = a.default
   console.log('push finished', router.current)
+  router.path = getPath(name)
   window.history.pushState(name, null, router.path)
 }
 router.getCurrent = () => router.current
@@ -18,10 +19,6 @@ router.getCurrent = () => router.current
 router.init = () => {
   router.push('index')
 }
-router.mixins = {
-
-}
-
 window.onpopstate = (e) => {
   console.log(e, 'popstate')
 }
