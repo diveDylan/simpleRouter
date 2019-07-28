@@ -7,3 +7,7 @@ todo:
  4、hashchange
 
 
+to resolve:
+1. init components
+
+

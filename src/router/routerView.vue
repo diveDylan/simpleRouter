@@ -13,19 +13,12 @@ export default {
     }
   },
   watch: {
-    // 'path': {
-    //   handler: 'getCurrent',
-    //   immediate: true
-    // }
-  },
-  methods: {
-    getCurrent() {
-      console.log('getCurrent')
-      this.$router.getCurrent()
-    }
+    'path': {
+      handler: () => console.log('waw')
+    } 
   },
   render(h, context) {
-    return  h(this.$router.getCurrent())
+    return h(this.$router.current)
   }
 }
 </script>

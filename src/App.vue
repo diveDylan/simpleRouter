@@ -2,7 +2,8 @@
   <div id="app">
    <button @click="nav('index')">index</button>
    <button @click="nav('travel')">travel</button>
-   <router-view :key="current"></router-view>
+   <button @click="replace('index')">replace</button>
+   <router-view :key="current" v-if="current"></router-view>
   </div>
 </template>
 
@@ -15,12 +16,18 @@ export default {
   },
   data() {
     return {
-      current: 'index',
+      current: this.$router.path,
     }
+  },
+  mounted() {
   },
   methods: {
     async nav(params) {
       await this.$router.push(params)
+      this.current = params
+    },
+    async replace(params) {
+      await this.$router.replace(params)
       this.current = params
     }
   }
